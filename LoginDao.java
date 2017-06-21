@@ -6,9 +6,9 @@ public static boolean validate(String name,String pass){
 boolean status=false;
 try{
 	Class.forName("com.mysql.jdbc.Driver");
-	Connection con=DriverManager.getConnection("jdbc:mysql://10.1.0.8:3306/lab","admin","finsol");
+	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/login","root","finsol");
 	
-	PreparedStatement ps=con.prepareStatement("select * from login where name=? and password=?");
+	PreparedStatement ps=con.prepareStatement("select * from login_users where username=? and password=?");
 	ps.setString(1,name);
 	ps.setString(2,pass);
 	

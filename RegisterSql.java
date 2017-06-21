@@ -7,7 +7,7 @@ public class RegisterSql {
 		try
 		{  
 			Class.forName("com.mysql.jdbc.driver");
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lab","admin","finsol");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/login","root","finsol");
 			String sql = "INSERT INTO user VALUES(?,?,?,?)";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1,name);
