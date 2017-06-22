@@ -13,14 +13,18 @@ public class RegisterServlet extends HttpServlet
 		String u = request.getParameter("uname");
 		String p = request.getParameter("upass");
 		String e = request.getParameter("eadd");
-		if(RegisterSql.register(n,u,p,e))
+		String no = request.getParameter("phno");
+		if(RegisterSql.register(n,u,p,e,no))
 		{
 			RequestDispatcher rd=request.getRequestDispatcher("suc.html");
 			rd.forward(request,response);
 		}
 		else
 		{
-			out.print("cannot be registered try again");
+			out.print("cannot be registered try again");		
+			RequestDispatcher rd=request.getRequestDispatcher("register.html");
+			rd.include(request,response);
 		}
+		out.close();
 	}
 }

@@ -8,7 +8,7 @@ try{
 	Class.forName("com.mysql.jdbc.Driver");
 	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/login","root","finsol");
 	
-	PreparedStatement ps=con.prepareStatement("select * from login_users where username=? and password=?");
+	PreparedStatement ps=con.prepareStatement("select * from users where edd=? and upass=?");
 	ps.setString(1,name);
 	ps.setString(2,pass);
 	
@@ -16,7 +16,8 @@ try{
 	status=rs.next();
 	
 	
-}catch(Exception e){System.out.println(e);}
+}
+catch(Exception e){System.out.println(e);}
 return status;
 }
 }
